@@ -1,0 +1,25 @@
+doctype html
+
+html
+  head
+    title Bathroom Status
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(http-equiv="refresh" content="5")
+  body
+    block content
+      //h1 Bathroom Status
+      table
+        thead
+          tr
+            th Bathroom
+            th Status
+            th Updated At
+            th Updated By
+        tbody
+          each bathroom_status, i in bathroom_statuses
+            tr(class= bathroom_status.status.toLowerCase())
+              td= bathroom_status.name
+              td= bathroom_status.status
+              td= moment(bathroom_status.reported_at).fromNow()
+              td= bathroom_status.reported_by
+
