@@ -13,13 +13,13 @@ html
           tr
             th Bathroom
             th Status
-            th Updated At
-            th Updated By
+            th Updated
+            //th Updated By
         tbody
           each bathroom_status, i in bathroom_statuses
             tr(class= bathroom_status.status.toLowerCase())
               td= bathroom_status.name
               td= bathroom_status.status
               td= moment(bathroom_status.reported_at).fromNow()
-              td= bathroom_status.reported_by
+              //td= bathroom_status.reported_by
 

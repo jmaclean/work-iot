@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('/Users/jmaclean/projects/work-iot/work-iot.db');
+var db = new sqlite3.Database(process.env.DATABASE_PATH);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-
   db.serialize(function() {
     var sql = "WITH last_status(bathroom_id, reported_at) AS (\n" +
     "SELECT be.bathroom_id, max(be.reported_at)\n" +
@@ -18,9 +17,12 @@ router.get('/', function(req, res, next) {
     "JOIN last_status ls ON b.id = ls.bathroom_id\n" +
     "WHERE be.reported_at = ls.reported_at;";
 
-  db.all(sql, function (err, rows) {
-      // console.log(row.name, row.status, row.reported_at, row.reported_by);
-    res.render('bathroom_status', {bathroom_statuses: rows});
+    db.all(sql, function (err, rows) {
+      if (err) {
+        res.render('error', {'title': 'Error', 'message': 'ERROR ERROR', error: err});
+      } else {
+        res.render('bathroom_status', {bathroom_statuses: rows});
+      }
     });
   });
 

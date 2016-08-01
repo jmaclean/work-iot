@@ -6,7 +6,7 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.IN)
 
-server_url = "http://192.168.1.102:3000"
+server_url = "http://localhost:3000"
 bathroom_id = 1
 reported_by = 'SENSOR'
 largest_time_interval = 5 * 60 # in seconds

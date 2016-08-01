@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('/Users/jmaclean/projects/work-iot/work-iot.db');
+var db = new sqlite3.Database(process.env.DATABASE_PATH);
 
 router.post('/', function(req, res, next) {
   var body = req.body;
