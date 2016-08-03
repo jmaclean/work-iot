@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>Bathroom Status</title>
+  <link rel='stylesheet' href='/stylesheets/style.css'>
+  <!--<meta http-equiv='refresh' content='10'>-->
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Bathroom</th>
+        <th>Status</th>
+        <th>Updated</th>
+        <!--<th>Updated By</th>-->
+      </tr>
+    </thead>
+    <tbody>
+    <% for (var i = 0; i < bathroom_statuses.length; i++) {
+      var bathroom_status = bathroom_statuses[i];
+    %>
+    <tr class=<%= bathroom_status.status.toLowerCase() %>>
+      <td> <%= bathroom_status.name %> </td>
+      <td> <%= bathroom_status.status %> </td>
+      <td> <%= moment(bathroom_status.reported_at).fromNow() %> </td>
+      <!--<td> <%= bathroom_status.reported_by %> </td>-->
+    </tr>
+    <% } %>
+    </tbody>
+  </table>
+</body>
+</html>

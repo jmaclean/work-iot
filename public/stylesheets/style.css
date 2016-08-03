@@ -1,10 +1,23 @@
 body {
   padding: 50px;
-  font: 28px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 50px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+@media only screen and (max-width: 320px) {
+
+  body {
+    font-size: 50px;
+  }
+
+}
+
+table {
+  width: 100%;
+  font-size: 40px;
 }
 
 tr.open {
@@ -13,6 +26,10 @@ tr.open {
 
 tr.closed {
   background-color: indianred;
+}
+
+tr.unknown {
+  background-color: yellow;
 }
 
 td {

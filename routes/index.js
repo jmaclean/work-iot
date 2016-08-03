@@ -5,6 +5,7 @@ var db = new sqlite3.Database(process.env.DATABASE_PATH);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  // res.render('bathroom_status', {bathroom_statuses: []});
   db.serialize(function() {
     var sql = "WITH last_status(bathroom_id, reported_at) AS (\n" +
     "SELECT be.bathroom_id, max(be.reported_at)\n" +
