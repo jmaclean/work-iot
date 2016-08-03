@@ -1,7 +1,13 @@
 .idea
 *.iml
 
+# Don't commit data!
 *.db
+
+# This one is special.
+!work-iot-init.db
+
+log/
 *.log
 
 node_modules/

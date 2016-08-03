@@ -25,7 +25,7 @@ tr.open {
 }
 
 tr.closed {
-  background-color: indianred;
+  background-color: lightcoral;
 }
 
 tr.unknown {
